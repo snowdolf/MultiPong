@@ -74,3 +74,11 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 /MultiPong/user.keystore
+
+/MultiPong/Assets/Editor Default Resources
+/MultiPong/Assets/ExternalDependencyManager
+/MultiPong/Assets/Firebase
+/MultiPong/Assets/GeneratedLocalRepo
+/MultiPong/Assets/Photon
+/MultiPong/Assets/Plugins
+/MultiPong/Assets/StreamingAssets

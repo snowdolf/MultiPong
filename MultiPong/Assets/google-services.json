@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1083723806773",
+    "project_id": "multi-pong-8fa24",
+    "storage_bucket": "multi-pong-8fa24.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083723806773:android:7c0233a1423b0a6a5c197c",
+        "android_client_info": {
+          "package_name": "com.snowdolf.multipong"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWy9Nca7q71DOU3aDCgYZk1pQrAd4nZiA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
