@@ -1184,6 +1184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b7e7919909ef643906195ad5580353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emailField: {fileID: 1875327497}
+  passwordField: {fileID: 224311867}
+  signInButton: {fileID: 2025602447}
 --- !u!1 &1875327495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,7 +1492,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2025602448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1403380422}
+        m_TargetAssemblyTypeName: AuthManager, Assembly-CSharp
+        m_MethodName: SignIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2025602448
 MonoBehaviour:
   m_ObjectHideFlags: 0
