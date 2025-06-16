@@ -23,7 +23,7 @@ public class AuthManager : MonoBehaviour
     {
         signInButton.interactable = false;
 
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
             var result = task.Result;
 
