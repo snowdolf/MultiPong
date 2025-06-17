@@ -242,6 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ab331c9add54d4f88093647907941e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectionInfoText: {fileID: 23159076}
+  joinButton: {fileID: 2025602447}
 --- !u!1 &360836838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1057,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2025602448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 58275716}
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: Connect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2025602448
 MonoBehaviour:
   m_ObjectHideFlags: 0
