@@ -21,11 +21,11 @@ public class InputButton : MonoBehaviour
         }
         else if (state == State.Left)
         {
-            HorizontalInput = -0.5f;
+            HorizontalInput = -1f;
         }
         else if (state == State.Right)
         {
-            HorizontalInput = 0.5f;
+            HorizontalInput = 1f;
         }
     }
 
