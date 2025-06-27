@@ -84,3 +84,6 @@ crashlytics-build.properties
 /MultiPong/Assets/StreamingAssets
 
 /MultiPong/Assets/google-services.json
+
+/MultiPong/Assets/GoogleSignIn.meta
+/MultiPong/Assets/GoogleSignIn/*
