@@ -82,3 +82,5 @@ crashlytics-build.properties
 /MultiPong/Assets/Photon
 /MultiPong/Assets/Plugins
 /MultiPong/Assets/StreamingAssets
+
+/MultiPong/Assets/google-services.json
