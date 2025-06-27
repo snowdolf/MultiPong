@@ -1,6 +1,8 @@
 using Firebase;
 using Firebase.Auth;
 using Firebase.Extensions;
+using Google;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,6 +20,8 @@ public class AuthManager : MonoBehaviour
     public static FirebaseAuth firebaseAuth;
 
     public static FirebaseUser User;
+
+    private string googleAPI = "add your webclient id here";
 
     public void Start()
     {
@@ -74,6 +78,64 @@ public class AuthManager : MonoBehaviour
                 User = task.Result.User;
                 Debug.Log(User.Email);
                 SceneManager.LoadScene("Lobby");
+            }
+        });
+    }
+
+    public void GSignIn()
+    {
+        if (!IsFirebaseReady || IsSignInOnProgress || User != null)
+        {
+            return;
+        }
+
+        IsSignInOnProgress = true;
+        signInButton.interactable = false;
+
+        GoogleSignIn.Configuration = new GoogleSignInConfiguration
+        {
+            RequestIdToken = true,
+            WebClientId = googleAPI
+        };
+        GoogleSignIn.Configuration.RequestEmail = true;
+
+        Task<GoogleSignInUser> signIn = GoogleSignIn.DefaultInstance.SignIn();
+        TaskCompletionSource<FirebaseUser> signInCompleted = new TaskCompletionSource<FirebaseUser>();
+
+        signIn.ContinueWith(task =>
+        {
+            IsSignInOnProgress = false;
+            signInButton.interactable = true;
+
+            if (task.IsCanceled)
+            {
+                signInCompleted.SetCanceled();
+            }
+            else if (task.IsFaulted)
+            {
+                signInCompleted.SetException(task.Exception);
+            }
+            else
+            {
+                GoogleSignInUser googleUser = task.Result;
+                Credential credential = GoogleAuthProvider.GetCredential(googleUser.IdToken, null);
+                firebaseAuth.SignInWithCredentialAsync(credential).ContinueWith(authTask =>
+                {
+                    if (authTask.IsCanceled)
+                    {
+                        signInCompleted.SetCanceled();
+                    }
+                    else if (authTask.IsFaulted)
+                    {
+                        signInCompleted.SetException(authTask.Exception);
+                    }
+                    else
+                    {
+                        User = authTask.Result;
+                        signInCompleted.SetResult(User);
+                        SceneManager.LoadScene("Lobby");
+                    }
+                });
             }
         });
     }
