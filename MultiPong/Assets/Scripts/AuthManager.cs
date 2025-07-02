@@ -139,4 +139,15 @@ public class AuthManager : MonoBehaviour
             }
         });
     }
+
+    public static void SignOut()
+    {
+        if (User != null)
+        {
+            firebaseAuth.SignOut();
+            User = null;
+            GoogleSignIn.DefaultInstance.SignOut();
+            SceneManager.LoadScene("SignIn");
+        }
+    }
 }

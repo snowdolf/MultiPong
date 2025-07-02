@@ -9,11 +9,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Text connectionInfoText;
     public Button joinButton;
 
-    private void Start()
+    public override void OnEnable()
     {
+        base.OnEnable();
+
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();
-        
+
         joinButton.interactable = false;
         connectionInfoText.text = "Connecting to Master Server...";
     }
@@ -59,5 +61,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         connectionInfoText.text = "Joined a room successfully!";
         PhotonNetwork.LoadLevel("Main");
+    }
+
+    public void SignOut()
+    {
+        PhotonNetwork.Disconnect();
+        AuthManager.SignOut();
     }
 }
